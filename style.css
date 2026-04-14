@@ -10,3 +10,21 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.main-box {
+    background: rgba( 255, 255, 255, 0.95); /* this is a white color with a kinda see through */
+    padding: 25px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 10px 30px;
+    text-align: center;
+
+}
+
+#searchForm {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+
+}
+
