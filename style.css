@@ -45,3 +45,20 @@ button {
     font-weight: bold;
 }
 
+#resultSection {
+    text-align: left;
+    padding-top: 15px;
+    border-top: 1px solid;
+}
+
+.error-msg {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
+.word-name {
+    color: green;
+    text-transform: capitalize;
+}
+
