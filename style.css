@@ -24,6 +24,17 @@ body {
     box-sizing: border-box;
 }
 
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color:beige;
+    text-decoration: none;
+    font-size: 14px;
+}
 
 .main-box {
     background: rgba( 255, 255, 255, 0.95); /* this is a white color with a kinda see through */
