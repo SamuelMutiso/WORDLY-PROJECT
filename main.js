@@ -6,9 +6,14 @@ const displayBox = document. querySelector("#resultSection");
 const apiBase = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
 // event listener for the form to also stop reload and call the function to get data
-myForm.addEventListener("submit", function(e){
-    e.preventDefault(); // this now prevents the page from reloading
+myForm.addEventListener("submit", function(event){
+    event.preventDefault(); // this now prevents the page from reloading
 
+    // here now we getting what the user typed
     let userWord = document.querySelector("#wordInput").value;
+    
+    // this now cleares the box and shows a loading message 
+    displayBox.innerHTML = "searching for" + userWord + "...";
     findWord(userWord);
 })
+
