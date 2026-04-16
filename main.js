@@ -39,3 +39,22 @@ function findWord(word) {
             displayBox.innerHTML = "<p class= 'error-msg'>No results found.</p>"
         })
 }
+
+// creating a function that puts the data on the screen
+function displayResult(data) {
+    // Get the definition from the deep API object
+    let definition = data.meanings[0].definitions[0].definition;
+    let partOfSpeech = data.meanings[0].partOfSpeech;
+    
+    // Build the HTML to show the user
+    displayBox.innerHTML = `
+        <h2 class="word-name">${data.word}</h2>
+        <p><strong>Type:</strong> ${partOfSpeech}</p>
+        <p><strong>Definition:</strong> ${definition}</p>
+    `;
+    
+    // Check if there are synonyms and add them if they exist
+    if (data.meanings[0].synonyms.length > 0) {
+        displayBox.innerHTML += "<p><strong>Synonyms:</strong> " + data.meanings[0].synonyms[0] + "</p>";
+    }
+}
