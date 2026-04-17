@@ -96,7 +96,7 @@ button {
     cursor: pointer;
     font-weight: bold;
 }
-.button:hover {
+button:hover {
     background-color: #4b0082;
     transform: translateY(-2px);
 }
@@ -119,3 +119,24 @@ button {
     margin-top: 5px;
 }
 
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action-btn {
+    background: #f0f0f0;
+    border: 1px solid purple;
+    color: purple;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.action-btn:hover {
+    background: purple;
+    color: white;
+}
