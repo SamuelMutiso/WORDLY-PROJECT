@@ -19,9 +19,17 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.85);
     color: white;
     box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: purple;
 }
 
 .nav-links {
@@ -36,28 +44,33 @@ body {
     font-size: 14px;
 }
 
+.nav-links a:hover {
+color: purple;
+
+}
+
 .main-box {
     background: rgba( 255, 255, 255, 0.95); /* this is a white color with a kinda see through */
-    padding: 25px;
-    border-radius: 10px;
-    width: 450px;
-    box-shadow: 0 10px 30px;
+    padding: 40px;
+    border-radius: 20px;
+    width: 500px;
+    box-shadow: 0 15px 35px;
     text-align: center;
-    margin-top: 60px; /* this moves the main box slightly below the na */
-    border-bottom: 6px solid purple;
+    margin-top: 80px; /* this moves the main box slightly below the na */
+    border-bottom: 8px solid purple;
 
 }
 .footer-qoute {
     margin-top: auto;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     background: rgba( 255, 255, 255, 0.8);
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 10px 30px;
+    border-radius: 50px;
     font-style: italic;
-    font-size: 13px;
+    font-size: #222;
 }
 #searchForm {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     display: flex;
     gap: 10px;
 
@@ -71,13 +84,17 @@ input {
 }
 
 button {
-    padding: 10px 15px;
+    padding: 12px 20px;
     background-color: purple;
     color: whitesmoke;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+}
+.button:hover {
+    background-color: #4b0082;
+    transform: scale(1.05);
 }
 
 #resultSection {
