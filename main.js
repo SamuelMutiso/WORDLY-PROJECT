@@ -40,7 +40,7 @@ function displayResult(data) {
     displayBox.innerHTML = `
         <div class="result-header">
             <h2 class="word-name">${data.word}</h2>
-            <button id="saveBtn" class="action-btn">⭐ Save</button>
+            <button id="saveBtn" class="action-btn">Save</button>
         </div>
         <p><strong>Definition:</strong> ${definition}</p>
     `;
