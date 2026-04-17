@@ -2,7 +2,7 @@
 const myForm = document.querySelector("#searchForm");
 const displayBox = document. querySelector("#resultSection");
 
-//the dictionary API LINK
+//the dictionary API LINK of the dictionary we using
 const apiBase = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
 // event listener for the form to also stop reload and call the function to get data
@@ -23,6 +23,7 @@ function findWord(word) {
         .then(function(response){
             //we need to check if the word typed actually exists
             if(response.ok) {
+                // here using the json i convert rawa data into a readable js object
                 return response.json(); //promise 
             } else {
                 //if the input word is not found it should display and error
@@ -31,7 +32,7 @@ function findWord(word) {
 
         })
         .then(function(data) {
-            // send like a display (success!) msg
+            // send like a display (success!) msg like the first object of the array
             displayResult(data[0]);
         })
         .catch(function(error) {
@@ -46,7 +47,7 @@ function displayResult(data) {
     let definition = data.meanings[0].definitions[0].definition;
     let partOfSpeech = data.meanings[0].partOfSpeech;
     
-    // Build the HTML to show the user
+    // Build the HTML to show the user like using backticks
     displayBox.innerHTML = `
         <h2 class="word-name">${data.word}</h2>
         <p><strong>Type:</strong> ${partOfSpeech}</p>
@@ -55,6 +56,7 @@ function displayResult(data) {
     
     // Check if there are synonyms and add them if they exist
     if (data.meanings[0].synonyms.length > 0) {
+        // we use the += to add this line to the existing html instead of overwriting it
         displayBox.innerHTML += "<p><strong>Synonyms:</strong> " + data.meanings[0].synonyms[0] + "</p>";
     }
 }
