@@ -65,9 +65,8 @@ function saveWord(word, def) {
     }
 }
 
-// --- LIBRARY NAVIGATION LOGIC ---
 
-// Listen for a click on the "Saved" link in the navbar
+// Listening for a click on the Saved link in the navbar
 savedLink.addEventListener("click", function(e) {
     e.preventDefault(); // Stop the link from trying to open a new page
     
@@ -81,7 +80,7 @@ savedLink.addEventListener("click", function(e) {
     if (savedWords.length === 0) {
         displayBox.innerHTML = "<p>Empty! Go save some words.</p>";
     } else {
-        // RENDER DATA: Loop through the savedWords array and build the HTML for each card
+        // move around the savedWords array and build the HTML for each card
         // We use .map() to create a new array of HTML strings and .join("") to combine them
         displayBox.innerHTML = savedWords.map((item, index) => `
             <div style="border-bottom: 1px solid #eee; padding: 10px 0;">
@@ -93,19 +92,19 @@ savedLink.addEventListener("click", function(e) {
     }
 });
 
-// HOME NAVIGATION: Simplest way to return to the search view is to reload the window
+// Simplest way to return to the search view is to reload the window
 homeLink.addEventListener("click", () => location.reload());
 
-// --- DATA MANAGEMENT ---
+// 
 
-// We attach this to the 'window' object so the HTML buttons can find it globally
+// We attach this to the window object so the HTML buttons can find it globally
 window.deleteWord = function(index) {
-    // Remove 1 item from the array at the specific position (index)
+    // Remove 1 item from the array at the specific position 
     savedWords.splice(index, 1);
     
-    // UPDATE STORAGE: Overwrite the old LocalStorage data with the new, shorter array
+    // updating the old LocalStorage data 
     localStorage.setItem("wordly_saved", JSON.stringify(savedWords));
     
-    // REFRESH UI: Programmatically trigger the "Saved" click to redraw the list immediately
+    // saving link
     savedLink.click(); 
 };
