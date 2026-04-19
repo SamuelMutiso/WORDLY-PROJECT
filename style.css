@@ -60,6 +60,7 @@ color: purple;
     text-align: center;
     margin-top: 60px; /* this moves the main box slightly below the na */
     border-bottom: 8px solid purple;
+    animation: fadeIn 0.5s ease-in-out;
 
 }
 .footer-qoute {
@@ -107,6 +108,18 @@ button:hover {
     border-top: 1px solid #eee;
 }
 
+/* Better spacing for the definition result */
+#resultSection p {
+    line-height: 1.6;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Make the synonym/antonym labels stand out */
+#resultSection strong {
+    color: purple;
+}
+
 .error-msg {
     color: red;
     text-align: center;
@@ -139,4 +152,20 @@ button:hover {
 .action-btn:hover {
     background: purple;
     color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile responsiveness - for future proofing */
+@media (max-width: 600px) {
+    .main-box {
+        width: 90%;
+        padding: 20px;
+    }
+    .navbar {
+        padding: 10px 20px;
+    }
 }
