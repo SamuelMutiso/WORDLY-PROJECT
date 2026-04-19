@@ -34,18 +34,45 @@ function findWord(word) {
 }
 
 function displayResult(data) {
+    // 1. Get the primary definition
     const definition = data.meanings[0].definitions[0].definition;
     
-    // We add a "Save" button dynamically to the result
+    // 2. Extract Parts of Speech (Noun, Verb, etc.)
+    // This solves the feedback from your lecturer!
+    const partsOfSpeech = data.meanings.map(m => m.partOfSpeech).join(", ");
+
+    // 3. Extract Synonyms & Antonyms
+    // We loop through all 'meanings' to find every synonym available
+    let synonyms = [];
+    let antonyms = [];
+    data.meanings.forEach(m => {
+        if (m.synonyms) synonyms.push(...m.synonyms);
+        if (m.antonyms) antonyms.push(...m.antonyms);
+    });
+
+    // 4. Get Audio URL
+    // We look through the 'phonetics' array for a valid audio link
+    const audioObj = data.phonetics.find(p => p.audio !== "");
+    const audioUrl = audioObj ? audioObj.audio : null;
+
+    // 5. Update the HTML
+    // We add the Audio button and the data point like snonyms
     displayBox.innerHTML = `
         <div class="result-header">
             <h2 class="word-name">${data.word}</h2>
-            <button id="saveBtn" class="action-btn">Save</button>
+            <div>
+                ${audioUrl ? `<button onclick="new Audio('${audioUrl}').play()" class="action-btn">🔊 Listen</button>` : ''}
+                <button id="saveBtn" class="action-btn">⭐ Save</button>
+            </div>
         </div>
+        <p style="color: grey; font-style: italic;">${partsOfSpeech}</p>
         <p><strong>Definition:</strong> ${definition}</p>
+        
+        ${synonyms.length > 0 ? `<p><strong>Synonyms:</strong> ${synonyms.slice(0, 5).join(", ")}</p>` : ''}
+        ${antonyms.length > 0 ? `<p><strong>Antonyms:</strong> ${antonyms.slice(0, 5).join(", ")}</p>` : ''}
     `;
 
-    // Listen for the save click
+    // Re-attach the save listener to the NEWly created button
     document.querySelector("#saveBtn").addEventListener("click", () => {
         saveWord(data.word, definition);
     });
